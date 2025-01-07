@@ -1,4 +1,4 @@
-package campaing
+package campaign
 
 import (
 	"errors"
@@ -11,7 +11,7 @@ type Contact struct {
 	Email string
 }
 
-type Campaing struct {
+type Campaign struct {
 	ID        string
 	Name      string
 	CreatedOn time.Time
@@ -19,7 +19,7 @@ type Campaing struct {
 	Contacts  []Contact
 }
 
-func NewCampaing(name string, content string, emails []string) (*Campaing, error) {
+func NewCampaign(name string, content string, emails []string) (*Campaign, error) {
 	if name == "" {
 		return nil, errors.New("name is required")
 	} else if content == "" {
@@ -33,7 +33,7 @@ func NewCampaing(name string, content string, emails []string) (*Campaing, error
 		contacts[index].Email = email
 	}
 
-	return &Campaing{
+	return &Campaign{
 		ID:        xid.New().String(),
 		Name:      name,
 		Content:   content,
