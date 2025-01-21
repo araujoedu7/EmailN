@@ -1,7 +1,12 @@
 POST  http://localhost:3000/campaigns
 
 {
-    "name": "eudardo",
-	"content":"test password",
-	"emails": ["teste@teste.com"],
+  "Name": "Campanha de Teste",
+  "Content": "Conteúdo da campanha de teste",
+  "Emails": ["email1@example.com", "email2@example.com"]
 }
+
+
+###
+
+GET  http://localhost:3000/campaigns

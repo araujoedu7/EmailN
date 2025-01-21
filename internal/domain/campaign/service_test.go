@@ -20,6 +20,11 @@ func (r *repositoryMock) Save(campaign *campaign.Campaign) error {
 	return args.Error(0)
 }
 
+func (r *repositoryMock) Get() []campaign.Campaign {
+	//args := r.Called(campaign)
+	return nil
+}
+
 type Service struct {
 	Repository *repositoryMock
 }
@@ -112,6 +117,7 @@ func Test_Create_ValidateRepositorySave(t *testing.T) {
 	service := Service{Repository: repositoryMock}
 
 	repositoryMock.On("Save", mock.Anything).Return(InternalErrors.ErrInternal)
+		service.Repository = repositoryMock
 
 	_, err := service.Create(newCampaign)
 
